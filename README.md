@@ -25,7 +25,7 @@ from an XMPP PubSub service.
 Currently, it uses Prosody's `mod_pubsub_feeds` but in future updates, Reeder will also allow
 the user to add their own personal feeds.
 Support for sharing articles with XMPP contacts/groups, desktop notifications is included.
-Also, there's a small PWA support.
+Also, there's some PWA support.
 
 ### Rationale
 
