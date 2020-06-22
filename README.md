@@ -3,6 +3,9 @@
 ## XMPP-based feeds reader
 
 ![reeder screenshot](reeder.png)
+
+### Try it out
+
 Live demo: https://reeder.netlify.app/
 Requirements before trying out the live demo:
 
