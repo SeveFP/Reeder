@@ -3,7 +3,10 @@
 ## XMPP-based feeds reader
 
 ![reeder screenshot](reeder.png)
-Live demo: https://reeder.netlify.app/
+
+### Try it out
+
+Live demo: https://reeder.netlify.app/  
 Requirements before trying out the live demo:
 
 - https://modules.prosody.im/mod_pubsub_feeds.html
