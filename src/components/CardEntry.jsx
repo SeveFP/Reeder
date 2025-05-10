@@ -46,8 +46,15 @@ export default function CardEntry(props) {
   const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };
 
   function parseHTML(htmlString) {
-    return { __html: htmlString };
+    const doc = new DOMParser().parseFromString(htmlString, 'text/html');
+    const links = doc.querySelectorAll('a');
+    links.forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+    return { __html: doc.body.innerHTML };
   }
+
   function _renderContent() {
     if (entry.summary) {
       return (
@@ -77,8 +84,8 @@ export default function CardEntry(props) {
             entry.updated
               ? entry.updated.toLocaleString(undefined, dateOptions)
               : entry.published
-              ? entry.published.toLocaleString(undefined, dateOptions)
-              : "Unknown date"
+                ? entry.published.toLocaleString(undefined, dateOptions)
+                : "Unknown date"
           }
         />
       </Link>

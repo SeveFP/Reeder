@@ -13,17 +13,17 @@ import SearchIcon from "@material-ui/icons/Search";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import {
   makeStyles,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Dialog,
   DialogTitle,
   DialogActions,
   Button,
   DialogContent,
   InputBase,
-  fade,
-  ExpansionPanelSummary,
-  ExpansionPanel,
+  alpha,
   Typography,
-  ExpansionPanelDetails,
 } from "@material-ui/core";
 import { stringToColor } from "../utils";
 
@@ -44,9 +44,9 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.6),
+    backgroundColor: alpha(theme.palette.common.white, 0.6),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.8),
+      backgroundColor: alpha(theme.palette.common.white, 0.8),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -156,12 +156,11 @@ function ContactList(props) {
     <div>
       {" "}
       <Dialog
-        disableBackdropClick
         disableEscapeKeyDown
         maxWidth="xs"
-        onEntering={() => "handleEntering"}
         aria-labelledby="confirmation-dialog-title"
         open={open}
+        onClose={handleCloseContactList}
         classes={{ paper: classes.dialog }}
       >
         <DialogTitle
@@ -184,15 +183,15 @@ function ContactList(props) {
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          <ExpansionPanel>
-            <ExpansionPanelSummary
+          <Accordion>
+            <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
               <Typography>Contacts</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
+            </AccordionSummary>
+            <AccordionDetails>
               <List dense className={classes.root}>
                 {roster &&
                   roster
@@ -226,18 +225,18 @@ function ContactList(props) {
                       );
                     })}
               </List>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+            </AccordionDetails>
+          </Accordion>
 
-          <ExpansionPanel>
-            <ExpansionPanelSummary
+          <Accordion>
+            <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
               <Typography>Groups</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
+            </AccordionSummary>
+            <AccordionDetails>
               <List dense className={classes.root}>
                 {bookmarks &&
                   bookmarks
@@ -271,8 +270,8 @@ function ContactList(props) {
                       );
                     })}
               </List>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+            </AccordionDetails>
+          </Accordion>
         </DialogContent>
         <DialogActions>
           <Button

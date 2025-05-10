@@ -14,7 +14,9 @@ Requirements before trying out the live demo:
 
 You can also reach [@SeveFP](https://github.com/SeveFP) for some working credentials :)
 
-To run locally: `npm start`
+To run locally:
+- `npm install`
+- `npm start`
 
 ### What is Reeder?
 
