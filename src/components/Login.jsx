@@ -86,6 +86,11 @@ function Login(props) {
                 id="password"
                 autoComplete="current-password"
                 onChange={handleOnChangeInput}
+                onKeyDown={(event => {
+                  if (event.key === 'Enter') {
+                    handleLogin();
+                  }
+                })}
               />
             </Grid>
             <Grid item xs={12}>
