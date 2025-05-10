@@ -19,7 +19,7 @@ import {
   Button,
   DialogContent,
   InputBase,
-  fade,
+  alpha,
   ExpansionPanelSummary,
   ExpansionPanel,
   Typography,
@@ -44,9 +44,9 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.6),
+    backgroundColor: alpha(theme.palette.common.white, 0.6),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.8),
+      backgroundColor: alpha(theme.palette.common.white, 0.8),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
