@@ -53,6 +53,7 @@ export function doLogin(credentials) {
     const client = XMPP.createClient({
       jid: credentials.jid,
       password: credentials.password,
+      resource: `Reeder.${__GIT_HASH__}`,
       transports: {
         // websocket: "wss://" + xmppServer + ":5281/xmpp-websocket",
         bosh: "https://" + xmppServer + ":5281/http-bind",
