@@ -18,6 +18,8 @@ To run locally:
 - `npm install`
 - `npm start`
 
+Build: `npm run build`
+
 ### What is Reeder?
 
 Reeder is an rss/atom feeds reader with the particularity that is purely based on XMPP's PubSub.
