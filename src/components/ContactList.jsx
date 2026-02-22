@@ -152,6 +152,24 @@ function ContactList(props) {
     await client.leaveRoom(bookmarkJID, nick);
   }
 
+  const isOnline = client?.transport?.hasStream;
+
+  if (!isOnline) {
+    return (
+      <Dialog open={open} onClose={handleCloseContactList}>
+        <DialogTitle>You are offline</DialogTitle>
+        <DialogContent>
+          <Typography>Restart to be able to share articles</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseContactList} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    );
+  }
+
   return (
     <div>
       {" "}

@@ -55,8 +55,8 @@ export function doLogin(credentials) {
       password: credentials.password,
       resource: `Reeder.${__GIT_HASH__}`,
       transports: {
-        // websocket: "wss://" + xmppServer + ":5281/xmpp-websocket",
-        bosh: "https://" + xmppServer + ":5281/http-bind",
+        websocket: "wss://" + xmppServer + ":5281/xmpp-websocket",
+        // bosh: "https://" + xmppServer + ":5281/http-bind",
       },
     });
     // client.on("*", (name, data) => console.log(name, data));
