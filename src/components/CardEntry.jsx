@@ -36,6 +36,13 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  headerLink: {
+    color: "inherit",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
 }));
 
 export default function CardEntry(props) {
@@ -71,13 +78,13 @@ export default function CardEntry(props) {
   return (
     <Card className={classes.root}>
       <IconButton
-        color="primary"
+        color="inherit"
         className={classes.closeButton}
         onClick={props.onClose}
       >
         <ArrowBackIcon />
       </IconButton>
-      <Link href={entry.links[0].href} target="_blank" rel="noreferrer">
+      <Link href={entry.links[0].href} target="_blank" rel="noreferrer" className={classes.headerLink}>
         <CardHeader
           title={entry.title.text}
           subheader={

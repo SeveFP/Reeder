@@ -8,6 +8,8 @@ import configureStore from "./configureStore";
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";
 import { saveState, loadState } from "./localStorage";
+import { ThemeProvider, createTheme, CssBaseline, useMediaQuery } from "@material-ui/core";
+
 const history = createBrowserHistory();
 const persistedState = loadState();
 const store = configureStore(persistedState);
@@ -15,11 +17,32 @@ store.subscribe(() => {
   saveState(store.getState());
 });
 
+function ThemedApp() {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          type: prefersDarkMode ? "dark" : "light",
+        },
+      }),
+    [prefersDarkMode]
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  );
+}
+
 ReactDOM.render(
   // <React.StrictMode>
   <Router path="/" history={history}>
     <Provider store={store}>
-      <App />
+      <ThemedApp />
     </Provider>
   </Router>, // </React.StrictMode>,
   document.getElementById("root")

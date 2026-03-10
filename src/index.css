@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: #90caf9;
+  }
+  a:visited {
+    color: #ce93d8;
+  }
+  a:hover {
+    color: #bbdefb;
+  }
+}
